@@ -1,0 +1,63 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API",
+        "description": "API",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:3000/api-docs",
+            "description": "Local"
+        },
+        {
+            "url": "https://api.example.com/api/v1",
+            "description": "Production"
+        }
+    ],
+    "paths": {
+        "/products": {
+            "post": {
+                "summary": "Cadastro de produto",
+                "description": "Essa rota será responsável por cadastrar um novo produto",
+                "tags": [
+                    "Products"
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Product"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Product": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "example": "Notebook"
+                    },
+                    "description": {
+                        "type": "string",
+                        "example": "Notebook de escritório"
+                    },
+                    "price": {
+                        "type": "number",
+                        "example": 1000
+                    },
+                    "id": {
+                        "type": "string",
+                        "example": 1
+                    }
+                }
+            }
+        }
+    }
+}
